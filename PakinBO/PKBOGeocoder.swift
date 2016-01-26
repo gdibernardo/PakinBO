@@ -92,8 +92,8 @@ class PKBOGeocoder: NSObject
                     }
                     
                     
-                    //let jsonDictionary = NSJSONSerialization.JSONObjectWithData(unwrappedResult,
-                      //  options: []) as? NSDictionary
+//                      let jsonDictionary = NSJSONSerialization.JSONObjectWithData(unwrappedResult,
+//                      options: []) as? NSDictionary
                     
 //                    if let unwrappedError = error
 //                    {

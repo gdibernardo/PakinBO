@@ -168,7 +168,7 @@ class PKBOSearchBar: UIButton, UITextFieldDelegate
     
     func clearText()
     {
-        self.text = ""
+        self.text = " "
     }
     /*
     // Only override drawRect: if you perform custom drawing.
