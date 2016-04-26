@@ -60,7 +60,7 @@ class PKBOShop: PFObject, PFSubclassing
     {
         let query = PKBOShop.query()
         
-        query?.findObjectsInBackgroundWithBlock({ (shops: [AnyObject]?, error: NSError?) -> Void in
+        query?.findObjectsInBackgroundWithBlock({ (shops: [PFObject]?, error: NSError?) -> Void in
             completionHandler(shops, error)
         })
     }
@@ -71,7 +71,7 @@ class PKBOShop: PFObject, PFSubclassing
         let query = PKBOReview.query()
         query?.whereKey("toShop", equalTo: self)
         
-        query?.findObjectsInBackgroundWithBlock() { (result: [AnyObject]?, error: NSError?) -> Void in
+        query?.findObjectsInBackgroundWithBlock() { (result: [PFObject]?, error: NSError?) -> Void in
             
             if let unwrappedError = error
             {

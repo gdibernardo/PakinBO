@@ -8,8 +8,10 @@
 
 import UIKit
 import Parse
-
-
+import Bolts
+import ParseFacebookUtilsV4
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 
 class PKBOWelcomeViewController: UIViewController {
@@ -71,18 +73,18 @@ class PKBOWelcomeViewController: UIViewController {
                         request.startWithCompletionHandler({ (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
                             if error == nil
                             {
-                                user.firstName = result["first_name"] as? String
-                                user.lastName = result["last_name"] as? String
+                                user.firstName = result.objectForKey("first_name") as? String
+                                user.lastName = result.objectForKey("last_name" ) as? String
                                 
-                                user.email = result["email"] as? String
+                                user.email = result.objectForKey("email") as? String
                                 
-                                user.facebookId = result["id"] as? String
+                                user.facebookId = result.objectForKey("id") as? String
                                 
                                 let birthdayDateFormatter = NSDateFormatter()
                                 birthdayDateFormatter.dateFormat = "MM/dd/yyyy"
-                                birthdayDateFormatter.timeZone = NSTimeZone(forSecondsFromGMT:result["timezone"] as! Int)
+                                birthdayDateFormatter.timeZone = NSTimeZone(forSecondsFromGMT:result.objectForKey("timezone") as! Int)
                                 
-                                user.birthday = birthdayDateFormatter.dateFromString(result["birthday"] as! String)
+                                user.birthday = birthdayDateFormatter.dateFromString(result.objectForKey("birthday") as! String)
                                 
                                 user.saveInBackground()
                                 

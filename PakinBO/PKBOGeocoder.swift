@@ -102,14 +102,14 @@ class PKBOGeocoder: NSObject
 //                    }
                     var addressResults = [PKBOGeocoderAddress]()
                     var results = jsonDictionary!["results"] as? [AnyObject]
-                    for(var index = 0; index < results!.count; index++)
+                    for index in 0 ..< results!.count
                     {
-                        let types = results![index]["types"] as? [String]
+                        let types = results![index].objectForKey("types") as? [String]
                         if((types!).contains("route"))
                         {
                             let address = PKBOGeocoderAddress.address()
                             
-                            let addressComponents = results![index]["address_components"] as? [AnyObject]
+                            let addressComponents = results![index].objectForKey("address_components") as? [AnyObject]
                             for(var component = 0; component < addressComponents!.count; component++)
                             {
                                 let currentComponent = addressComponents![component] as! NSDictionary
@@ -132,8 +132,8 @@ class PKBOGeocoder: NSObject
                                 
                             }
                             
-                            address.formattedAddress = results![index]["formatted_address"] as? String
-                            let location = (results![index]["geometry"] as? NSDictionary)!["location"] as? NSDictionary
+                            address.formattedAddress = results![index].objectForKey("formatted_address") as? String
+                            let location = (results![index].objectForKey("geometry") as? NSDictionary)!["location"] as? NSDictionary
                             let latitude = location!["lat"] as! CLLocationDegrees
                             let longitude = location!["lng"] as! CLLocationDegrees
                             

@@ -34,7 +34,7 @@ class PKBOUser: PFUser
         set
         {
             profilePicture = PFFile(name:"\(self.facebookId!)ProfilePicture.jpg",
-                                    data:UIImageJPEGRepresentation(newValue!, 1.0)!)
+                                    data:UIImageJPEGRepresentation(newValue!, 1.0)!)!
         }
         
         get
@@ -59,7 +59,7 @@ class PKBOUser: PFUser
             }
             else
             {
-                if let pictureInfo = result["data"] as? [NSObject:AnyObject]
+                if let pictureInfo = result.objectForKey("data") as? [NSObject:AnyObject]
                 {
                     let isSilhouette = pictureInfo["is_silhouette"] as! Bool
                     if(isSilhouette)
