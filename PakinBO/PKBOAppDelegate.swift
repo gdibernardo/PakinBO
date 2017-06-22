@@ -27,12 +27,12 @@ class PKBOAppDelegate: UIResponder, UIApplicationDelegate {
         PKBOShop.registerSubclass()
         PKBOReview.registerSubclass()
         
-        Parse.setApplicationId("8MQlptPksIcOCknOpx0eJZxgy68Gsd7IyQlAmDC0", clientKey:"nykpv01ACfAhe9QIodz0nup5RHiKGRWRENCb0CCH")
+        Parse.setApplicationId("", clientKey:"")
        
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
-        GMSServices.provideAPIKey("AIzaSyBgjFdFa5DFrd6htmrATS-WOtQwGOJvO_8")
+        GMSServices.provideAPIKey("")
         
         
         if let currentUser = PKBOUser.currentUser()
